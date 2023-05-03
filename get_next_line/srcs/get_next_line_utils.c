@@ -6,13 +6,13 @@
 /*   By: lgabet <lgabet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 10:44:03 by lgabet            #+#    #+#             */
-/*   Updated: 2023/05/03 16:05:27 by lgabet           ###   ########.fr       */
+/*   Updated: 2023/05/03 16:28:14 by lgabet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/get_next_line.h"
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin_gnl(char *s1, char *s2)
 {
 	char	*str;
 	int		i;
@@ -20,7 +20,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	int		len_s1;
 	int		len_s2;
 
-	len_s1 = ft_strlen(s1);
+	len_s1 = ft_strlen_gnl(s1);
 	len_s2 = ft_strlen_buff(s2);
 	str = malloc(sizeof(char) * (len_s1 + len_s2 + 1));
 	if (!str)
@@ -69,7 +69,7 @@ int	have_newline(char *str)
 	return (0);
 }
 
-int	ft_strlen(char *str)
+int	ft_strlen_gnl(char *str)
 {
 	int	i;
 
