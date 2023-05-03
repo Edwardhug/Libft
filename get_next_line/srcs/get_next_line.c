@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgabet <lgabet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 11:00:30 by lgabet            #+#    #+#             */
-/*   Updated: 2023/03/30 12:28:13 by lgabet           ###   ########.fr       */
+/*   Created: 2023/01/06 10:32:15 by lgabet            #+#    #+#             */
+/*   Updated: 2023/05/03 16:05:07 by lgabet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/get_next_line_bonus.h"
+#include "../includes/get_next_line.h"
 
 char	*get_next_line(int fd)
 {
-	static char	*buff[65534];
+	static char	buff[BUFFER_SIZE + 1];
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	if (!buff[fd])
-	{
-		buff[fd] = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-		if (!buff[fd])
-			return (NULL);
-		buff[fd][0] = 0;
-	}
-	line = ft_fill_line(fd, buff[fd]);
-	if (have_error_gnl(line, &buff[fd]))
+	line = ft_fill_line(fd, buff);
+	if (!line)
 		return (NULL);
-	ft_clear_buff(buff[fd]);
+	if (ft_strlen(line) == 0)
+	{
+		free(line);
+		return (NULL);
+	}
+	ft_clear_buff(buff);
 	return (line);
 }
 
@@ -42,7 +40,7 @@ char	*ft_fill_line(int fd, char *buff)
 	str = NULL;
 	while (size_readed > 0)
 	{
-		str = ft_strjoin_gnl(str, buff);
+		str = ft_strjoin(str, buff);
 		if (!str)
 			return (NULL);
 		if (have_newline(buff))

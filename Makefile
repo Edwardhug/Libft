@@ -6,7 +6,7 @@
 #    By: lgabet <lgabet@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/30 11:46:37 by lgabet            #+#    #+#              #
-#    Updated: 2023/03/30 11:55:04 by lgabet           ###   ########.fr        #
+#    Updated: 2023/05/03 16:04:31 by lgabet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,8 +57,8 @@ libft/srcs/ft_lstdelone.c\
 libft/srcs/ft_lstclear.c\
 libft/srcs/ft_lstiter.c\
 libft/srcs/ft_lstmap.c\
-get_next_line/srcs/get_next_line_bonus.c\
-get_next_line/srcs/get_next_line_utils_bonus.c\
+get_next_line/srcs/get_next_line.c\
+get_next_line/srcs/get_next_line_utils.c\
 printf/srcs/ft_printchar.c\
 printf/srcs/ft_printstr.c\
 printf/srcs/ft_printf.c\
@@ -71,7 +71,7 @@ printf/srcs/ft_unsigned_itoa.c\
 printf/srcs/ft_itoa_x.c
 
 HEADERS = libft/includes/libft.h\
-get_next_line/includes/get_next_line_bonus.h\
+get_next_line/includes/get_next_line.h\
 printf/includes/ft_printf.h
 OBJS= ${SRCS:.c=.o}
 

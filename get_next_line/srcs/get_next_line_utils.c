@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgabet <lgabet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 11:00:35 by lgabet            #+#    #+#             */
-/*   Updated: 2023/03/30 12:27:58 by lgabet           ###   ########.fr       */
+/*   Created: 2023/01/06 10:44:03 by lgabet            #+#    #+#             */
+/*   Updated: 2023/05/03 16:05:27 by lgabet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/get_next_line_bonus.h"
+#include "../includes/get_next_line.h"
 
-char	*ft_strjoin_gnl(char *s1, char *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*str;
 	int		i;
@@ -20,7 +20,7 @@ char	*ft_strjoin_gnl(char *s1, char *s2)
 	int		len_s1;
 	int		len_s2;
 
-	len_s1 = ft_strlen_gnl(s1);
+	len_s1 = ft_strlen(s1);
 	len_s2 = ft_strlen_buff(s2);
 	str = malloc(sizeof(char) * (len_s1 + len_s2 + 1));
 	if (!str)
@@ -69,7 +69,7 @@ int	have_newline(char *str)
 	return (0);
 }
 
-int	ft_strlen_gnl(char *str)
+int	ft_strlen(char *str)
 {
 	int	i;
 
@@ -79,22 +79,4 @@ int	ft_strlen_gnl(char *str)
 	while (str[i])
 		i++;
 	return (i);
-}
-
-int	have_error_gnl(char *line, char **buff)
-{
-	if (!line)
-	{
-		free(*buff);
-		(*buff) = NULL;
-		return (1);
-	}
-	if (ft_strlen(line) == 0)
-	{
-		free(line);
-		free(*buff);
-		(*buff) = NULL;
-		return (1);
-	}
-	return (0);
 }
